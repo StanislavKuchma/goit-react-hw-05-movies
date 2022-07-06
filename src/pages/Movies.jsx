@@ -1,6 +1,6 @@
 import { Container, Section } from 'components';
 import { Suspense } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useGetMovieDetails } from 'Hooks/useGetMovieDetails';
 import { NavLinkStyled, Box, Text } from '../components/Header/Header.styled';
 
@@ -8,8 +8,6 @@ export const Movies = () => {
   const { country, error, isLoading } = useGetMovieDetails();
   const location = useLocation();
   const path = location?.state?.from ?? '/';
-  //  const navigate = useNavigate();
-  // const path = location?.state?.from ?? '/';
 
   return (
     <Section>
@@ -27,6 +25,7 @@ export const Movies = () => {
                 <Text>
                   <img
                     src={`https://image.tmdb.org/t/p/w300/${country.poster_path}`}
+                    alr=""
                   />
                 </Text>
                 <Text>

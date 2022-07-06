@@ -10,7 +10,7 @@ import {
 } from './Header.styled';
 
 export const Header = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <>

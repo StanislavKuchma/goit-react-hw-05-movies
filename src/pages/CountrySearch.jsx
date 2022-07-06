@@ -1,4 +1,4 @@
-import { Container, CountryInfo, SearchForm, Section } from 'components';
+import { Container, SearchForm, Section } from 'components';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchCountry } from '../service/movies-service';
@@ -21,8 +21,7 @@ export const CountrySearch = () => {
       .catch(() => {
         setSearchParams({});
       });
-    console.log(data);
-  }, [searchParams, setSearchParams]);
+  }, [data, searchParams, setSearchParams]);
 
   const handleSubmit = q => {
     setQuery(searchParams.get('q'));
