@@ -2,7 +2,6 @@ import { useGetMovieReviews } from 'Hooks/useGetMovieReviews';
 
 export const Reviews = () => {
   const { reviews, error, isLoading } = useGetMovieReviews();
-  console.log(reviews);
   return (
     <>
       {isLoading && <h1>LOADING...</h1>}
