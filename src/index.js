@@ -8,7 +8,7 @@ import { GlobalStyles, theme } from 'styles';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="">
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Global styles={GlobalStyles} />
         <App />
