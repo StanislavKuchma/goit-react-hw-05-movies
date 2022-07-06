@@ -32,3 +32,4 @@ export const SearchForm = ({ onSubmit }) => {
     </SearchFormStyled>
   );
 };
+// export default SearchForm;

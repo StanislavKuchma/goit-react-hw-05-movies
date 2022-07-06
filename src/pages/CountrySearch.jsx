@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { fetchCountry } from '../service/movies-service';
 import { Link } from 'react-router-dom';
 
-export const CountrySearch = () => {
+const CountrySearch = () => {
   // const [_, setQuery] = useState('');
   const [data, setData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,3 +45,4 @@ export const CountrySearch = () => {
     </Section>
   );
 };
+export default CountrySearch;

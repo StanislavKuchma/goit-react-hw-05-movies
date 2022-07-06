@@ -1,6 +1,6 @@
 import { useGetMovieReviews } from 'Hooks/useGetMovieReviews';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { reviews, error, isLoading } = useGetMovieReviews();
   return (
     <>
@@ -21,3 +21,4 @@ export const Reviews = () => {
     </>
   );
 };
+export default Reviews;

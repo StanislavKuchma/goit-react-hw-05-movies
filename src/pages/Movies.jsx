@@ -10,7 +10,7 @@ import {
 } from '../components/Header/Header.styled';
 import PropTypes from 'prop-types';
 
-export const Movies = () => {
+const Movies = () => {
   const { country, error, isLoading } = useGetMovieDetails();
   const location = useLocation();
   const path = location?.state?.from ?? '/';
@@ -65,7 +65,7 @@ export const Movies = () => {
             </ul>
 
             <hr />
-            <Suspense>
+            <Suspense fallback={<h1>Loading...</h1>}>
               <Outlet />
             </Suspense>
           </>
@@ -88,3 +88,4 @@ Movies.propTypes = {
     })
   ),
 };
+export default Movies;

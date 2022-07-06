@@ -2,7 +2,7 @@ import { useGetMovieCredits } from 'Hooks/useGetMovieCredits';
 import { Grid, GridItem } from 'components';
 import image from '../components/Image/29797-9e9e9e.svg';
 
-export const Cast = () => {
+const Cast = () => {
   const { cast, error, isLoading } = useGetMovieCredits();
 
   return (
@@ -32,3 +32,4 @@ export const Cast = () => {
     </>
   );
 };
+export default Cast;

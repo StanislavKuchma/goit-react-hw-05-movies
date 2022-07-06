@@ -8,7 +8,7 @@ import {
   NavLinkStyled,
 } from './Header.styled';
 
-export const Header = () => {
+const Header = () => {
   // const theme = useTheme();
 
   return (
@@ -27,3 +27,4 @@ export const Header = () => {
     </>
   );
 };
+export default Header;
