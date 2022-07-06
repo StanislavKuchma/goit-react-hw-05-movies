@@ -2,7 +2,13 @@ import { Container, Section } from 'components';
 import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useGetMovieDetails } from 'Hooks/useGetMovieDetails';
-import { NavLinkStyled, Box, Text } from '../components/Header/Header.styled';
+import {
+  NavLinkStyled,
+  Box,
+  Text,
+  LinkWrapper,
+} from '../components/Header/Header.styled';
+import PropTypes from 'prop-types';
 
 export const Movies = () => {
   const { country, error, isLoading } = useGetMovieDetails();
@@ -41,24 +47,21 @@ export const Movies = () => {
               </Box>
             </>
           )}
-
-          {/* <button onClick={goBack}>Go back</button>
-        
-          <button onClick={goHome}>Go home</button> */}
           <>
-            {/* {data && <MoviePublic movie={movie} />} */}
             <hr />
             <h3>Additional information</h3>
 
             <ul>
-              <NavLinkStyled to="cast" state={{ from: path }}>
-                Cast
-              </NavLinkStyled>
-              <li>
+              <LinkWrapper>
+                <NavLinkStyled to="cast" state={{ from: path }}>
+                  Cast
+                </NavLinkStyled>
+              </LinkWrapper>
+              <LinkWrapper>
                 <NavLinkStyled to="reviews" state={{ from: path }}>
                   Reviews
                 </NavLinkStyled>
-              </li>
+              </LinkWrapper>
             </ul>
 
             <hr />
@@ -70,4 +73,18 @@ export const Movies = () => {
       </Container>
     </Section>
   );
+};
+Movies.propTypes = {
+  country: PropTypes.array,
+  error: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  poster_path: PropTypes.string,
+  title: PropTypes.string,
+  vote_average: PropTypes.number,
+  overview: PropTypes.string,
+  genres: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+    })
+  ),
 };
