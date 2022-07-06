@@ -5,7 +5,7 @@ import { fetchCountry } from '../service/movies-service';
 import { Link } from 'react-router-dom';
 
 export const CountrySearch = () => {
-  const [_, setQuery] = useState('');
+  // const [_, setQuery] = useState('');
   const [data, setData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -24,7 +24,7 @@ export const CountrySearch = () => {
   }, [data, searchParams, setSearchParams]);
 
   const handleSubmit = q => {
-    setQuery(searchParams.get('q'));
+    // setQuery(searchParams.get('q'));
     setSearchParams({ q });
   };
 

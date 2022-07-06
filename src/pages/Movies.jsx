@@ -25,7 +25,7 @@ export const Movies = () => {
                 <Text>
                   <img
                     src={`https://image.tmdb.org/t/p/w300/${country.poster_path}`}
-                    alr=""
+                    alr={country.original_name}
                   />
                 </Text>
                 <Text>
