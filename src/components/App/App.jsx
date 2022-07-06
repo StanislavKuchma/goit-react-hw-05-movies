@@ -14,7 +14,7 @@ const Movies = lazy(() => import('../../pages/Movies'));
 const Cast = lazy(() => import('../../pages/Cast'));
 const CountrySearch = lazy(() => import('../../pages/CountrySearch'));
 const Reviews = lazy(() => import('../../pages/Reviews'));
-const NotFound = lazy(() => import('../../pages/NotFound'));
+// const NotFound = lazy(() => import('../../pages/NotFound'));
 
 const App = () => {
   return (
