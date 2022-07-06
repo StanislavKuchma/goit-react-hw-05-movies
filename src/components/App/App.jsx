@@ -1,20 +1,20 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // import Header from '../Header/Header';
-import Home from '../../pages/Home';
-import Cast from '../../pages/Cast';
-import Reviews from '../../pages/Reviews';
-import Movies from '../../pages/Movies';
-import NotFound from '../../pages/NotFound';
-import CountrySearch from 'pages/CountrySearch';
+// import Home from '../../pages/Home';
+// import Cast from '../../pages/Cast';
+// import Reviews from '../../pages/Reviews';
+// import Movies from '../../pages/Movies';
+// import NotFound from '../../pages/NotFound';
+// import CountrySearch from 'pages/CountrySearch';
 
 const Header = lazy(() => import('../Header/Header'));
-// const Home = lazy(() => import('../../pages/Home'));
-// const Movies = lazy(() => import('../../pages/Movies'));
-// const Cast = lazy(() => import('../../pages/Cast'));
-// const CountrySearch = lazy(() => import('../../pages/CountrySearch'));
-// const Reviews = lazy(() => import('../../pages/Reviews'));
-// const NotFound = lazy(() => import('../../pages/NotFound'));
+const Home = lazy(() => import('../../pages/Home'));
+const Movies = lazy(() => import('../../pages/Movies'));
+const Cast = lazy(() => import('../../pages/Cast'));
+const CountrySearch = lazy(() => import('../../pages/CountrySearch'));
+const Reviews = lazy(() => import('../../pages/Reviews'));
+const NotFound = lazy(() => import('../../pages/NotFound'));
 
 const App = () => {
   return (
