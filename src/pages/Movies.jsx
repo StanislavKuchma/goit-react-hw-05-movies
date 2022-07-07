@@ -32,6 +32,7 @@ const Movies = () => {
                   <img
                     src={`https://image.tmdb.org/t/p/w300/${country.poster_path}`}
                     alt={country.original_name}
+                    width="500px"
                   />
                 </Text>
                 <Text>
