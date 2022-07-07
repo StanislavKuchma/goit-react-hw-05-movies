@@ -23,6 +23,7 @@ const Header = () => {
           </HeaderWrapper>
         </Container>
       </NavBar>
+      <hr />
       <Outlet />
     </>
   );
