@@ -10,7 +10,7 @@ export const useGetMovieCredits = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const getCountry = async () => {
+    const getMovie = async () => {
       try {
         const cast = await getMovieCredits(id);
         setCast(cast.cast);
@@ -20,7 +20,7 @@ export const useGetMovieCredits = () => {
         setIsLoading(false);
       }
     };
-    getCountry();
+    getMovie();
   }, [id]);
   return { cast, error, isLoading };
 };

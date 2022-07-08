@@ -12,7 +12,7 @@ const Header = lazy(() => import('../Header/Header'));
 const Home = lazy(() => import('../../pages/Home'));
 const Movies = lazy(() => import('../../pages/Movies'));
 const Cast = lazy(() => import('../../pages/Cast'));
-const CountrySearch = lazy(() => import('../../pages/CountrySearch'));
+const MoviesSearch = lazy(() => import('../../pages/MoviesSearch'));
 const Reviews = lazy(() => import('../../pages/Reviews'));
 const NotFound = lazy(() => import('../../pages/NotFound'));
 
@@ -22,10 +22,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index path="/" element={<Home />} />
-          <Route path="movies" element={<CountrySearch />} />
+          <Route path="movies" element={<MoviesSearch />} />
           <Route path="movies/:id" element={<Movies />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
+            <Route path="cast" element={<Cast />} replace={true} />
+            <Route path="reviews" element={<Reviews />} replace={true} />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />

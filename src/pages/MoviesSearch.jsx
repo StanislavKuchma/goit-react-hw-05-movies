@@ -1,20 +1,20 @@
 import { Container, SearchForm, Section } from 'components';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { fetchCountry } from '../service/movies-service';
-import { Link } from 'react-router-dom';
+import { getMovie } from '../service/movies-service';
+import { Link, useLocation } from 'react-router-dom';
 
-const CountrySearch = () => {
+const MoviesSearch = () => {
   // const [_, setQuery] = useState('');
   const [data, setData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const location = useLocation();
   useEffect(() => {
-    const countryName = searchParams.get('q');
+    const filmName = searchParams.get('q');
 
-    if (!countryName) return;
+    if (!filmName) return;
 
-    fetchCountry(countryName)
+    getMovie(filmName)
       .then(data => {
         setData(data);
       })
@@ -37,7 +37,9 @@ const CountrySearch = () => {
           data.map(movie => (
             <ul key={movie.id}>
               <li>
-                <Link to={`/movies/${movie.id}`}>{movie.original_title}</Link>
+                <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                  {movie.original_title}
+                </Link>
               </li>
             </ul>
           ))}
@@ -45,4 +47,4 @@ const CountrySearch = () => {
     </Section>
   );
 };
-export default CountrySearch;
+export default MoviesSearch;

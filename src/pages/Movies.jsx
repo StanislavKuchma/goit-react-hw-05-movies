@@ -1,6 +1,6 @@
 import { Container, Section } from 'components';
 import { Suspense } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
 import { useGetMovieDetails } from 'Hooks/useGetMovieDetails';
 import {
   NavLinkStyled,
@@ -11,8 +11,9 @@ import {
 import PropTypes from 'prop-types';
 
 const Movies = () => {
-  const { country, error, isLoading } = useGetMovieDetails();
+  const { movie, error, isLoading } = useGetMovieDetails();
   const location = useLocation();
+  console.log(location);
   const path = location?.state?.from ?? '/';
 
   return (
@@ -21,27 +22,38 @@ const Movies = () => {
         {isLoading && <h1>LOADING...</h1>}
         {error && <h1>{error}</h1>}
 
-        <NavLinkStyled to={path}>
-          <button> Go back</button>
-        </NavLinkStyled>
+        <Link to={path}>
+          <button
+            style={{
+              color: 'white',
+              border: '1px solid',
+              width: '120px',
+              height: '35px',
+              borderRadius: '4px',
+            }}
+          >
+            {' '}
+            Go back
+          </button>
+        </Link>
         <div>
-          {country && (
+          {movie && (
             <>
               <Box>
                 <Text>
                   <img
-                    src={`https://image.tmdb.org/t/p/w300/${country.poster_path}`}
-                    alt={country.original_name}
+                    src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                    alt={movie.original_name}
                     width="500px"
                   />
                 </Text>
                 <Text>
-                  <h2>{country.title}</h2>
-                  <p>User score: {country.vote_average * 10}%</p>
+                  <h2>{movie.title}</h2>
+                  <p>User score: {movie.vote_average * 10}%</p>
                   <h3>Overview</h3>
-                  <p>{country.overview}</p>
+                  <p>{movie.overview}</p>
                   <h3>Genres</h3>
-                  {country.genres.map(movie => {
+                  {movie.genres.map(movie => {
                     return `${movie.name} `;
                   })}
                 </Text>
@@ -54,12 +66,12 @@ const Movies = () => {
 
             <ul>
               <LinkWrapper>
-                <NavLinkStyled to="cast" state={{ from: path }}>
+                <NavLinkStyled to="Cast" state={{ from: path }}>
                   Cast
                 </NavLinkStyled>
               </LinkWrapper>
               <LinkWrapper>
-                <NavLinkStyled to="reviews" state={{ from: path }}>
+                <NavLinkStyled to="Reviews" state={{ from: path }}>
                   Reviews
                 </NavLinkStyled>
               </LinkWrapper>
@@ -76,7 +88,7 @@ const Movies = () => {
   );
 };
 Movies.propTypes = {
-  country: PropTypes.array,
+  movie: PropTypes.array,
   error: PropTypes.bool,
   isLoading: PropTypes.bool,
   poster_path: PropTypes.string,

@@ -1,19 +1,19 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchCountry } from '../service/movies-service';
+import { getMovie } from '../service/movies-service';
 
 export const useFetchSearchMovies = () => {
   const { id } = useParams();
-  const [country, setCountry] = useState(null);
+  const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    const getCountry = async () => {
+    const getMovies = async () => {
       try {
-        const country = await fetchCountry(id);
-        setCountry(country);
+        const movie = await getMovie(id);
+        setMovie(movie);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -21,7 +21,7 @@ export const useFetchSearchMovies = () => {
       }
     };
 
-    getCountry();
+    getMovies();
   }, []);
-  return { country, error, isLoading };
+  return { movie, error, isLoading };
 };

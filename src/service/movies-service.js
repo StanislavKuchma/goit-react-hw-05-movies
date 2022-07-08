@@ -4,18 +4,19 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const API_KEY = '3e6b5a16db2403137fa9f14ae47f28f4';
 
-export const getCountries = async () => {
+export const getMovies = async () => {
   const { data } = await axios.get(`/trending/all/day?api_key=${API_KEY}`);
   const data1 = data.results;
-  const countries = data1.map(({ id, original_title }) => ({
+  const movies = data1.map(({ id, original_title, name }) => ({
     id: id,
     original_title: original_title,
+    name: name,
   }));
 
-  return countries;
+  return movies;
 };
 
-export const fetchCountry = async name => {
+export const getMovie = async name => {
   const { data } = await axios.get(
     `/search/movie?api_key=${API_KEY}&query=${name}&page=1`
   );

@@ -4,23 +4,23 @@ import { getMovieDetails } from '../service/movies-service';
 
 export const useGetMovieDetails = () => {
   const { id } = useParams();
-  const [country, setCountry] = useState(null);
+  const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    const getCountry = async () => {
+    const getMovie = async () => {
       try {
-        const country = await getMovieDetails(id);
-        setCountry(country);
+        const film = await getMovieDetails(id);
+        setMovie(film);
       } catch (err) {
         setError(err.message);
       } finally {
         setIsLoading(false);
       }
     };
-    getCountry();
+    getMovie();
   }, [id]);
-  return { country, error, isLoading };
+  return { movie, error, isLoading };
 };
