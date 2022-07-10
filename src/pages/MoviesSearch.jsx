@@ -19,7 +19,7 @@ const MoviesSearch = () => {
     } else {
       getMovie(filmName).then(data => {
         if (data.length === 0) {
-          toast('No results try again');
+          toast(`No results  ${filmName} try again`);
         } else {
           setData(data);
         }
