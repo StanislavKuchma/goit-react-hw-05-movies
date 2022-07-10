@@ -23,7 +23,7 @@ export const useFetchSearchMovies = () => {
     };
 
     getMovies();
-  }, []);
+  }, [id]);
   // if (movie) {
   console.log('ggg');
   // }
