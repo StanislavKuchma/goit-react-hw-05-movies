@@ -21,7 +21,7 @@ const MoviesSearch = () => {
       .catch(() => {
         setSearchParams({});
       });
-  }, [searchParams]);
+  }, [searchParams, setSearchParams]);
 
   const handleSubmit = q => {
     // setQuery(searchParams.get('q'));
