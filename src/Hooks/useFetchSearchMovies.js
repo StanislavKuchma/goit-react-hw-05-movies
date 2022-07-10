@@ -15,7 +15,6 @@ export const useFetchSearchMovies = () => {
         const movie = await getMovie(id);
         setMovie(movie);
       } catch (err) {
-        console.log(err);
         setError(err.message);
       } finally {
         setIsLoading(false);
