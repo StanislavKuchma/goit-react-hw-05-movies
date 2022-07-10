@@ -15,10 +15,9 @@ const Movies = () => {
   const location = useLocation();
   const navigator = useNavigate();
   const path = location?.state?.from ?? '/';
-  {
-    if (error) {
-      navigator(-1);
-    }
+
+  if (error) {
+    navigator(-1);
   }
 
   return (
