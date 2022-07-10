@@ -20,11 +20,7 @@ export const useFetchSearchMovies = () => {
         setIsLoading(false);
       }
     };
-
     getMovies();
   }, [id]);
-  // if (movie) {
-  console.log('ggg');
-  // }
   return { movie, error, isLoading };
 };

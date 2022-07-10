@@ -21,7 +21,6 @@ export const getMovie = async name => {
     `/search/movie?api_key=${API_KEY}&query=${name}&page=1`
   );
   const data1 = data.results;
-
   const movies = data1.map(({ id, original_title }) => ({
     id: id,
     original_title: original_title,

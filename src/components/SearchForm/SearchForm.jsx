@@ -2,16 +2,12 @@ import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { BtnSearch, InputSearch, SearchFormStyled } from './SearchForm.styled';
 
-
-
-
 export const SearchForm = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
- 
+
   const handleInput = e => {
     setQuery(e.currentTarget.value.toLowerCase().trim());
   };
-
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -35,4 +31,3 @@ export const SearchForm = ({ onSubmit }) => {
     </SearchFormStyled>
   );
 };
-// export default SearchForm;
