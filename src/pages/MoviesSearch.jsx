@@ -21,7 +21,7 @@ const MoviesSearch = () => {
       .catch(() => {
         setSearchParams({});
       });
-  }, [data, searchParams, setSearchParams]);
+  }, [searchParams]);
 
   const handleSubmit = q => {
     // setQuery(searchParams.get('q'));
@@ -32,6 +32,8 @@ const MoviesSearch = () => {
     <Section>
       <Container>
         <h1>Movies Search</h1>
+        {data.length === 0 && <h1> No results try again</h1>}
+
         <SearchForm onSubmit={handleSubmit} />
         {data &&
           data.map(movie => (

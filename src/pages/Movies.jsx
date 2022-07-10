@@ -1,6 +1,6 @@
 import { Container, Section } from 'components';
 import { Suspense } from 'react';
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Outlet, useLocation, Link, useNavigate } from 'react-router-dom';
 import { useGetMovieDetails } from 'Hooks/useGetMovieDetails';
 import {
   NavLinkStyled,
@@ -13,8 +13,13 @@ import PropTypes from 'prop-types';
 const Movies = () => {
   const { movie, error, isLoading } = useGetMovieDetails();
   const location = useLocation();
-  console.log(location);
+  const navigator = useNavigate();
   const path = location?.state?.from ?? '/';
+  {
+    if (error) {
+      navigator(-1);
+    }
+  }
 
   return (
     <Section>

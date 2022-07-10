@@ -15,6 +15,7 @@ export const useFetchSearchMovies = () => {
         const movie = await getMovie(id);
         setMovie(movie);
       } catch (err) {
+        console.log(err);
         setError(err.message);
       } finally {
         setIsLoading(false);
@@ -23,5 +24,8 @@ export const useFetchSearchMovies = () => {
 
     getMovies();
   }, []);
+  // if (movie) {
+  console.log('ggg');
+  // }
   return { movie, error, isLoading };
 };
